@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "backend": "pytorch",
+  "precision": "fp16",
+  "gpu": "Tesla T4",
+  "prompt_tokens": 512,
+  "new_tokens": 64,
+  "ttft_ms": 67.08,
+  "tbt_ms": 28.99,
+  "decode_tokens_per_sec": 34.5,
+  "peak_gpu_mem_gb": 3.27
+}
