@@ -1,0 +1,13 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "backend": "onnxruntime-genai",
+  "precision": "int4",
+  "gpu": "Tesla T4",
+  "prompt_tokens": 512,
+  "new_tokens": 64,
+  "ttft_ms": 82.05,
+  "tbt_ms": 7.07,
+  "decode_tokens_per_sec": 141.5,
+  "model_size_on_disk_gb": 0.89,
+  "gpu_mem_used_gb_nvidia_smi": 2.41
+}

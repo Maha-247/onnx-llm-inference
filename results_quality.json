@@ -1,0 +1,26 @@
+[
+  {
+    "backend": "pytorch",
+    "precision": "fp16",
+    "perplexity": 13.479,
+    "tokens_scored": 4088
+  },
+  {
+    "backend": "onnxruntime-genai",
+    "precision": "fp16",
+    "perplexity": 13.486,
+    "tokens_scored": 4088
+  },
+  {
+    "backend": "onnxruntime-genai",
+    "precision": "int8",
+    "perplexity": 13.47,
+    "tokens_scored": 4088
+  },
+  {
+    "backend": "onnxruntime-genai",
+    "precision": "int4",
+    "perplexity": 15.618,
+    "tokens_scored": 4088
+  }
+]
