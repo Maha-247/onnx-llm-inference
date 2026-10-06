@@ -1,0 +1,28 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "tokens_scored": 20440,
+  "attention_matrices": 112,
+  "feedforward_matrices": 84,
+  "results": [
+    {
+      "config": "fp16_baseline",
+      "perplexity": 11.93,
+      "increase_pct": 0.0
+    },
+    {
+      "config": "int4_attention_only",
+      "perplexity": 12.224,
+      "increase_pct": 2.46
+    },
+    {
+      "config": "int4_feedforward_only",
+      "perplexity": 13.128,
+      "increase_pct": 10.04
+    },
+    {
+      "config": "int4_attention_and_feedforward",
+      "perplexity": 13.442,
+      "increase_pct": 12.67
+    }
+  ]
+}
