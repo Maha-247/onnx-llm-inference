@@ -1,4 +1,3 @@
-# LLM Inference Analysis: PyTorch vs ONNX Runtime
 # LLM Inference Analysis: PyTorch vs. ONNX Runtime, FP16 vs. INT8 vs. INT4
 
 Where does the time go when a language model generates text, and what do a faster
@@ -74,6 +73,60 @@ read per step and a prediction of about 11 ms, much closer to the measurement.
 
 I have not yet opened the ONNX files to confirm this, so it remains a hypothesis.
 
+## Part 2: which layers cause INT4's quality loss?
+
+INT4 raised perplexity by about 16% in the ONNX Runtime runs. To find where that
+loss comes from, I simulated INT4 in PyTorch: I rounded selected weight matrices
+to 16 levels with the same scale-factor scheme, left everything else in FP16, and
+measured perplexity on about 20,000 tokens of WikiText-2.
+
+![Sensitivity results](results_sensitivity.png)
+
+**By type of weight** (all 28 layers):
+
+| Quantized to INT4 | Perplexity | Change |
+|---|---|---|
+| Nothing (FP16) | 11.93 | baseline |
+| Attention weights only | 12.22 | +2.5% |
+| Feed-forward weights only | 13.13 | +10.0% |
+| Both | 13.44 | +12.7% |
+
+The feed-forward weights cause about four times as much loss as the attention
+weights. The two effects add up almost exactly (2.5 + 10.0 vs. 12.7).
+
+**By layer.** Quantizing one layer at a time shows a U-shape: layers 1 to 5 and
+the last two layers (26 and 27) are the most sensitive, and the middle layers
+matter least. The 28 single-layer increases sum to 12.6%, close to the 12.3 to
+12.7% measured with every layer quantized, so the layers also behave almost
+independently.
+
+**Mixed precision.** I ranked the layers on one half of the text, then tested
+mixed configurations on the other half:
+
+| Configuration | Bits per weight | Perplexity change |
+|---|---|---|
+| All layers INT4 | 4.00 | +12.3% |
+| 2 most sensitive layers at INT8 | 4.29 | +9.9% |
+| 4 most sensitive layers at INT8 | 4.57 | +7.9% |
+| 8 most sensitive layers at INT8 | 5.14 | +4.7% |
+| Control: 4 least sensitive layers at INT8 | 4.57 | +12.0% |
+| All layers INT8 | 8.00 | -0.1% |
+
+Keeping the 4 most sensitive layers at INT8 removes about a third of the loss
+for 14% more bits. The control, which protects the 4 least sensitive layers at
+the same cost, removes almost none, so the ranking carries real information and
+it holds on text it was not chosen on.
+
+The gain is moderate, not dramatic. Sensitivity is concentrated in a few layers,
+but most of the loss is still spread across the rest.
+
+**What this part does not show.** The quantization is simulated, so these are
+quality numbers only; I have not built a mixed-precision ONNX model or measured
+its speed. The simulation's +12.7% is consistent with, but not identical to, the
++16% from ONNX Runtime; the two used different text samples, and the ONNX model
+builder may quantize parts this script leaves in FP16. "Bits per weight" counts
+the layer weights only and ignores the stored scale factors.
+
 ## How I measured
 
 - **TTFT:** time from submitting the 512-token prompt to having the first new token.
@@ -103,6 +156,9 @@ I have not yet opened the ONNX files to confirm this, so it remains a hypothesis
 | `onnx_benchmark.py` | Exports to ONNX Runtime GenAI (fp16 / int8 / int4) and benchmarks |
 | `quality.py` | Perplexity on WikiText-2 for all four configurations |
 | `plot.py` | Draws `results.png` from the saved results |
+| `sensitivity.py` | Part 2: INT4 on attention vs. feed-forward weights |
+| `sensitivity_layers.py` | Part 2: per-layer sensitivity and mixed precision |
+| `plot_sensitivity.py` | Draws `results_sensitivity.png` |
 | `chat.py` | Sends one real question to the model and prints the answer |
 | `results_*.json` | Raw results |
 
@@ -118,6 +174,10 @@ modal run onnx_benchmark.py --precision int8
 modal run onnx_benchmark.py --precision int4
 modal run quality.py
 python plot.py
+
+modal run sensitivity.py
+modal run sensitivity_layers.py
+python plot_sensitivity.py
 ```
 
 Built with PyTorch, Hugging Face Transformers, ONNX Runtime GenAI, and Modal.
