@@ -1,331 +1,362 @@
-✓ Initialized. View run at https://modal.com/apps/lakshmiroja247/main/ap-Q3nzbWMiz1P3FfNP2OSFA6
-✓ Created objects.
-├── 🔨 Created mount /Users/roja/Work/Projects/onnx-llm-inference/sensitivity_layers.py
-└── 🔨 Created function run.
+✓ Initialized. View run at https://modal.com/apps/lakshmiroja247/main/ap-fPH2ECGohA2o1ygx53SOUJ
+Building image im-iuvl2OJuGQMkckvrORrAyl
 
-[1ALoading weights:   0%|          | 0/338 [00:00<?, ?it/s]
-[1ALoading weights:   4%|▍         | 13/338 [00:00<00:02, 110.74it/s]
-[1ALoading weights:   8%|▊         | 27/338 [00:00<00:02, 110.17it/s]
-[1ALoading weights:  13%|█▎        | 43/338 [00:00<00:02, 123.44it/s]
-[1ALoading weights:  17%|█▋        | 56/338 [00:00<00:02, 124.69it/s]
-[1ALoading weights:  20%|██        | 69/338 [00:00<00:02, 124.71it/s]
-[1ALoading weights:  25%|██▌       | 85/338 [00:00<00:01, 129.63it/s]
-[1ALoading weights:  29%|██▉       | 99/338 [00:00<00:01, 127.80it/s]
-[1ALoading weights:  33%|███▎      | 112/338 [00:00<00:01, 125.13it/s]
-[1ALoading weights:  40%|███▉      | 135/338 [00:01<00:01, 137.24it/s]
-[1ALoading weights:  44%|████▍     | 149/338 [00:01<00:01, 134.44it/s]
-[1ALoading weights:  48%|████▊     | 163/338 [00:01<00:01, 132.49it/s]
-[1ALoading weights: 100%|██████████| 338/338 [00:01<00:00, 247.12it/s]
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-layer  0 at INT4: +0.400%
-layer  1 at INT4: +1.387%
-layer  2 at INT4: +0.967%
-layer  3 at INT4: +0.580%
-layer  4 at INT4: +0.785%
-layer  5 at INT4: +0.468%
-layer  6 at INT4: +0.085%
-layer  7 at INT4: +0.439%
-layer  8 at INT4: +0.379%
-layer  9 at INT4: +0.243%
-layer 10 at INT4: +0.293%
-layer 11 at INT4: +0.235%
-layer 12 at INT4: +0.223%
-layer 13 at INT4: +0.200%
-layer 14 at INT4: +0.275%
-layer 15 at INT4: +-0.004%
-layer 16 at INT4: +0.143%
-layer 17 at INT4: +0.365%
-layer 18 at INT4: +0.393%
-layer 19 at INT4: +0.255%
-layer 20 at INT4: +0.367%
-layer 21 at INT4: +0.377%
-layer 22 at INT4: +0.297%
-layer 23 at INT4: +0.286%
-layer 24 at INT4: +0.574%
-layer 25 at INT4: +0.103%
-layer 26 at INT4: +1.113%
-layer 27 at INT4: +1.383%
-Most sensitive layers first: [1, 27, 26, 2, 4, 3, 24, 5, 7, 0, 18, 8, 21, 20, 17, 22, 10, 23, 14, 19, 9, 11, 12, 13, 16, 25, 6, 15]
-all_int4: +12.29% at 4.00 bits/weight
-protect_top_2: +9.88% at 4.29 bits/weight
-protect_top_4: +7.92% at 4.57 bits/weight
-protect_top_8: +4.65% at 5.14 bits/weight
-protect_least_sensitive_4 (control): +11.97% at 4.57 bits/weight
-{
-  "model": "Qwen/Qwen2.5-1.5B-Instruct",
-  "layers": 28,
-  "calibration_tokens": 10220,
-  "heldout_tokens": 10220,
-  "baseline_perplexity_calibration": 11.28,
-  "baseline_perplexity_heldout": 12.618,
-  "per_layer_int4": [
-    {
-      "layer": 0,
-      "perplexity": 11.325,
-      "increase_pct": 0.4
-    },
-    {
-      "layer": 1,
-      "perplexity": 11.436,
-      "increase_pct": 1.387
-    },
-    {
-      "layer": 2,
-      "perplexity": 11.389,
-      "increase_pct": 0.967
-    },
-    {
-      "layer": 3,
-      "perplexity": 11.345,
-      "increase_pct": 0.58
-    },
-    {
-      "layer": 4,
-      "perplexity": 11.369,
-      "increase_pct": 0.785
-    },
-    {
-      "layer": 5,
-      "perplexity": 11.333,
-      "increase_pct": 0.468
-    },
-    {
-      "layer": 6,
-      "perplexity": 11.29,
-      "increase_pct": 0.085
-    },
-    {
-      "layer": 7,
-      "perplexity": 11.33,
-      "increase_pct": 0.439
-    },
-    {
-      "layer": 8,
-      "perplexity": 11.323,
-      "increase_pct": 0.379
-    },
-    {
-      "layer": 9,
-      "perplexity": 11.307,
-      "increase_pct": 0.243
-    },
-    {
-      "layer": 10,
-      "perplexity": 11.313,
-      "increase_pct": 0.293
-    },
-    {
-      "layer": 11,
-      "perplexity": 11.306,
-      "increase_pct": 0.235
-    },
-    {
-      "layer": 12,
-      "perplexity": 11.305,
-      "increase_pct": 0.223
-    },
-    {
-      "layer": 13,
-      "perplexity": 11.303,
-      "increase_pct": 0.2
-    },
-    {
-      "layer": 14,
-      "perplexity": 11.311,
-      "increase_pct": 0.275
-    },
-    {
-      "layer": 15,
-      "perplexity": 11.28,
-      "increase_pct": -0.004
-    },
-    {
-      "layer": 16,
-      "perplexity": 11.296,
-      "increase_pct": 0.143
-    },
-    {
-      "layer": 17,
-      "perplexity": 11.321,
-      "increase_pct": 0.365
-    },
-    {
-      "layer": 18,
-      "perplexity": 11.324,
-      "increase_pct": 0.393
-    },
-    {
-      "layer": 19,
-      "perplexity": 11.309,
-      "increase_pct": 0.255
-    },
-    {
-      "layer": 20,
-      "perplexity": 11.321,
-      "increase_pct": 0.367
-    },
-    {
-      "layer": 21,
-      "perplexity": 11.322,
-      "increase_pct": 0.377
-    },
-    {
-      "layer": 22,
-      "perplexity": 11.314,
-      "increase_pct": 0.297
-    },
-    {
-      "layer": 23,
-      "perplexity": 11.312,
-      "increase_pct": 0.286
-    },
-    {
-      "layer": 24,
-      "perplexity": 11.345,
-      "increase_pct": 0.574
-    },
-    {
-      "layer": 25,
-      "perplexity": 11.292,
-      "increase_pct": 0.103
-    },
-    {
-      "layer": 26,
-      "perplexity": 11.406,
-      "increase_pct": 1.113
-    },
-    {
-      "layer": 27,
-      "perplexity": 11.436,
-      "increase_pct": 1.383
-    }
-  ],
-  "sensitivity_ranking": [
-    1,
-    27,
-    26,
-    2,
-    4,
-    3,
-    24,
-    5,
-    7,
-    0,
-    18,
-    8,
-    21,
-    20,
-    17,
-    22,
-    10,
-    23,
-    14,
-    19,
-    9,
-    11,
-    12,
-    13,
-    16,
-    25,
-    6,
-    15
-  ],
-  "mixed_precision": [
-    {
-      "config": "all_int4",
-      "layers_at_int8": [],
-      "avg_bits_per_weight": 4.0,
-      "perplexity": 14.168,
-      "increase_pct": 12.29
-    },
-    {
-      "config": "protect_top_2",
-      "layers_at_int8": [
-        1,
-        27
-      ],
-      "avg_bits_per_weight": 4.29,
-      "perplexity": 13.864,
-      "increase_pct": 9.88
-    },
-    {
-      "config": "protect_top_4",
-      "layers_at_int8": [
-        1,
-        2,
-        26,
-        27
-      ],
-      "avg_bits_per_weight": 4.57,
-      "perplexity": 13.618,
-      "increase_pct": 7.92
-    },
-    {
-      "config": "protect_top_8",
-      "layers_at_int8": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        24,
-        26,
-        27
-      ],
-      "avg_bits_per_weight": 5.14,
-      "perplexity": 13.205,
-      "increase_pct": 4.65
-    },
-    {
-      "config": "protect_least_sensitive_4 (control)",
-      "layers_at_int8": [
-        6,
-        15,
-        16,
-        25
-      ],
-      "avg_bits_per_weight": 4.57,
-      "perplexity": 14.128,
-      "increase_pct": 11.97
-    },
-    {
-      "config": "all_int8",
-      "layers_at_int8": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27
-      ],
-      "avg_bits_per_weight": 8.0,
-      "perplexity": 12.61,
-      "increase_pct": -0.07
-    }
-  ]
-}
-Stopping app - local entrypoint completed.
-all_int8: +-0.07% at 8.00 bits/weight
-✓ App completed. View run at https://modal.com/apps/lakshmiroja247/main/ap-Q3nzbWMiz1P3FfNP2OSFA6
+=> Step 0: FROM base
+
+=> Step 1: ENV CC=gcc
+
+=> Step 2: ENV CXX=g++
+
+=> Step 3: ENV CMAKE_ARGS='-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_EXE_LINKER_FLAGS=-Wl,--allow-shlib-undefined'
+Saving image...
+Image saved, took 487.33ms
+
+Built image im-iuvl2OJuGQMkckvrORrAyl in 1.64s
+
+
+Building image im-pOuJTQnb2I8OAQCwvEieE8
+
+=> Step 0: FROM base
+
+=> Step 1: RUN python -m pip install huggingface_hub llama-cpp-python numpy
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting huggingface_hub
+  Obtaining dependency information for huggingface_hub from http://pypi-mirror.modal.local:5555/simple/huggingface-hub/huggingface_hub-2.2.0-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/huggingface-hub/huggingface_hub-2.2.0-py3-none-any.whl.metadata (16 kB)
+Collecting llama-cpp-python
+  Downloading http://pypi-mirror.modal.local:5555/simple/llama-cpp-python/llama_cpp_python-0.3.36.tar.gz (76.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.6/76.6 MB 23.9 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting numpy
+  Obtaining dependency information for numpy from http://pypi-mirror.modal.local:5555/simple/numpy/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/numpy/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface_hub)
+  Obtaining dependency information for click<9.0.0,>=8.4.2 from http://pypi-mirror.modal.local:5555/simple/click/click-8.5.0-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/click/click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting filelock>=3.10.0 (from huggingface_hub)
+  Obtaining dependency information for filelock>=3.10.0 from http://pypi-mirror.modal.local:5555/simple/filelock/filelock-4.0.12-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/filelock/filelock-4.0.12-py3-none-any.whl.metadata (2.0 kB)
+Collecting fsspec>=2023.5.0 (from huggingface_hub)
+  Obtaining dependency information for fsspec>=2023.5.0 from http://pypi-mirror.modal.local:5555/simple/fsspec/fsspec-2026.9.0-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/fsspec/fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub)
+  Obtaining dependency information for hf-xet<2.0.0,>=1.6.0 from http://pypi-mirror.modal.local:5555/simple/hf-xet/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/hf-xet/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface_hub)
+  Obtaining dependency information for httpx2<3,>=2.0.0 from http://pypi-mirror.modal.local:5555/simple/httpx2/httpx2-2.13.1-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/httpx2/httpx2-2.13.1-py3-none-any.whl.metadata (9.8 kB)
+Collecting packaging>=20.9 (from huggingface_hub)
+  Obtaining dependency information for packaging>=20.9 from http://pypi-mirror.modal.local:5555/simple/packaging/packaging-26.3-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/packaging/packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from huggingface_hub)
+  Obtaining dependency information for pyyaml>=5.1 from http://pypi-mirror.modal.local:5555/simple/pyyaml/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/pyyaml/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting tqdm>=4.42.1 (from huggingface_hub)
+  Obtaining dependency information for tqdm>=4.42.1 from http://pypi-mirror.modal.local:5555/simple/tqdm/tqdm-4.70.1-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/tqdm/tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 200.2 MB/s eta 0:00:00
+Collecting typing-extensions>=4.1.0 (from huggingface_hub)
+  Obtaining dependency information for typing-extensions>=4.1.0 from http://pypi-mirror.modal.local:5555/simple/typing-extensions/typing_extensions-4.16.0-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/typing-extensions/typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting diskcache>=5.6.1 (from llama-cpp-python)
+  Obtaining dependency information for diskcache>=5.6.1 from http://pypi-mirror.modal.local:5555/simple/diskcache/diskcache-5.6.3-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/diskcache/diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+Collecting jinja2>=2.11.3 (from llama-cpp-python)
+  Obtaining dependency information for jinja2>=2.11.3 from http://pypi-mirror.modal.local:5555/simple/jinja2/jinja2-3.1.6-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/jinja2/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Obtaining dependency information for anyio>=4.10 from http://pypi-mirror.modal.local:5555/simple/anyio/anyio-4.15.1-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/anyio/anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.13.1 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Obtaining dependency information for httpcore2==2.13.1 from http://pypi-mirror.modal.local:5555/simple/httpcore2/httpcore2-2.13.1-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/httpcore2/httpcore2-2.13.1-py3-none-any.whl.metadata (26 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Obtaining dependency information for idna>=3.18 from http://pypi-mirror.modal.local:5555/simple/idna/idna-3.20-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/idna/idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Obtaining dependency information for truststore>=0.10 from http://pypi-mirror.modal.local:5555/simple/truststore/truststore-0.10.4-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/truststore/truststore-0.10.4-py3-none-any.whl.metadata (4.4 kB)
+Collecting h11>=0.16 (from httpcore2==2.13.1->httpx2<3,>=2.0.0->huggingface_hub)
+  Obtaining dependency information for h11>=0.16 from http://pypi-mirror.modal.local:5555/simple/h11/h11-0.16.0-py3-none-any.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/h11/h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting MarkupSafe>=2.0 (from jinja2>=2.11.3->llama-cpp-python)
+  Obtaining dependency information for MarkupSafe>=2.0 from http://pypi-mirror.modal.local:5555/simple/markupsafe/markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading http://pypi-mirror.modal.local:5555/simple/markupsafe/markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/huggingface-hub/huggingface_hub-2.2.0-py3-none-any.whl (839 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 839.9/839.9 kB 191.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/numpy/numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 313.4 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/click/click-8.5.0-py3-none-any.whl (125 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 283.7 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/diskcache/diskcache-5.6.3-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.5/45.5 kB 232.1 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/filelock/filelock-4.0.12-py3-none-any.whl (111 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.7/111.7 kB 298.5 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/fsspec/fsspec-2026.9.0-py3-none-any.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.7/221.7 kB 280.2 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/hf-xet/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 272.4 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/httpx2/httpx2-2.13.1-py3-none-any.whl (95 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.6/95.6 kB 278.0 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/httpcore2/httpcore2-2.13.1-py3-none-any.whl (83 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.4/83.4 kB 281.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/jinja2/jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 282.9 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/packaging/packaging-26.3-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 297.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/pyyaml/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 318.8 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/tqdm/tqdm-4.70.1-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 256.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/typing-extensions/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 233.1 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/anyio/anyio-4.15.1-py3-none-any.whl (132 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 kB 287.6 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/idna/idna-3.20-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 244.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/markupsafe/markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/truststore/truststore-0.10.4-py3-none-any.whl (18 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/h11/h11-0.16.0-py3-none-any.whl (37 kB)
+Building wheels for collected packages: llama-cpp-python
+  Building wheel for llama-cpp-python (pyproject.toml): started
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+[modal-client] 2026-10-08T17:44:31-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): finished with status 'done'
+  Created wheel for llama-cpp-python: filename=llama_cpp_python-0.3.36-py3-none-linux_x86_64.whl size=462452237 sha256=a6078f4b004e93439f5f2cdf601a880a6f3adc5910beb8b3a0038f4f9edaf44e
+  Stored in directory: /tmp/pip-ephem-wheel-cache-pqw21o6p/wheels/36/d8/12/fcba0e0a7e0bc57ddec0f0ab003e79c29d2b05e96ee5a87381
+Successfully built llama-cpp-python
+Installing collected packages: typing-extensions, truststore, tqdm, pyyaml, packaging, numpy, MarkupSafe, idna, hf-xet, h11, fsspec, filelock, diskcache, click, jinja2, httpcore2, anyio, llama-cpp-python, httpx2, huggingface_hub
+Successfully installed MarkupSafe-3.0.4 anyio-4.15.1 click-8.5.0 diskcache-5.6.3 filelock-4.0.12 fsspec-2026.9.0 h11-0.16.0 hf-xet-1.7.0 httpcore2-2.13.1 httpx2-2.13.1 huggingface_hub-2.2.0 idna-3.20 jinja2-3.1.6 llama-cpp-python-0.3.36 numpy-2.4.6 packaging-26.3 pyyaml-6.0.3 tqdm-4.70.1 truststore-0.10.4 typing-extensions-4.16.0
+
+[notice] A new release of pip is available: 23.2.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+Saving image...
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.
+Image saved, took 2.05s
+
+Built image im-pOuJTQnb2I8OAQCwvEieE8 in 339.59s
+
+
+✓ Created objects.
+├── 🔨 Created mount /Users/roja/Work/Projects/onnx-llm-inference/llamacpp_benchmark.py
+└── 🔨 Created function bench.
+[modal-client] 2026-10-08T17:44:47-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T18:53:50-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T18:54:05-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T19:25:35-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T19:25:50-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T19:41:21-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T19:41:36-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T19:57:12-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T19:57:27-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T20:26:33-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+[modal-client] 2026-10-08T20:26:48-0700 Loop attempt for _run_app.<locals>.heartbeat failed
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_utils/async_utils.py", line 574, in loop_coro
+    await asyncio.wait_for(async_f(), timeout=timeout)
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/runner.py", line 66, in _heartbeat
+    await client.stub.AppHeartbeat(request, retry=Retry(attempt_timeout=HEARTBEAT_TIMEOUT))
+modal.exception.ConflictError: App state is APP_STATE_STOPPED
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/grpclib/client.py:369 in      │
+│ recv_initial_metadata                                                                            │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/grpclib/protocol.py:342 in    │
+│ recv_headers                                                                                     │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/asyncio/locks.py:213 in wait                │
+│                                                                                                  │
+│   212 │   │   try:                                                                               │
+│ ❱ 213 │   │   │   await fut                                                                      │
+│   214 │   │   │   return True                                                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+CancelledError
+
+During handling of the above exception, another exception occurred:
+
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_grpc_client.py:158 in  │
+│ direct                                                                                           │
+│                                                                                                  │
+│   157 │   │   self.wrapped_method.channel = await self.client._get_channel(self.server_url)      │
+│ ❱ 158 │   │   return await self.client._call_unary(self.wrapped_method, req, timeout=timeout,    │
+│   159                                                                                            │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/client.py:347 in        │
+│ _call_unary                                                                                      │
+│                                                                                                  │
+│   346 │   │   coro = grpclib_method(request, timeout=timeout, metadata=metadata)                 │
+│ ❱ 347 │   │   return await self._call_safely(coro, grpclib_method.name)                          │
+│   348                                                                                            │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/client.py:304 in        │
+│ _call_safely                                                                                     │
+│                                                                                                  │
+│   303 │   │   │   │   request_task.set_name(readable_method)                                     │
+│ ❱ 304 │   │   │   │   return await request_task                                                  │
+│   305 │   │   │   except asyncio.CancelledError:                                                 │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/grpclib/client.py:913 in      │
+│ __call__                                                                                         │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/grpclib/client.py:426 in      │
+│ recv_message                                                                                     │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/grpclib/client.py:368 in      │
+│ recv_initial_metadata                                                                            │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/grpclib/utils.py:70 in        │
+│ __exit__                                                                                         │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+TimeoutError: Deadline exceeded
+
+During handling of the above exception, another exception occurred:
+
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /Users/roja/Work/Projects/onnx-llm-inference/llamacpp_benchmark.py:105 in main                   │
+│                                                                                                  │
+│   104 def main(model: str = "qwen", precision: str = "q4_k_m"):                                  │
+│ ❱ 105 │   result = bench.remote(model, precision)                                                │
+│   106 │   print(json.dumps(result, indent=2))                                                    │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_object.py:46 in        │
+│ wrapped                                                                                          │
+│                                                                                                  │
+│    45 │   │   await self.hydrate()                                                               │
+│ ❱  46 │   │   return await method(self, *args, **kwargs)                                         │
+│    47                                                                                            │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_functions.py:1696 in   │
+│ remote                                                                                           │
+│                                                                                                  │
+│   1695 │   │                                                                                     │
+│ ❱ 1696 │   │   return await self._call_function(args, kwargs)                                    │
+│   1697                                                                                           │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_functions.py:1640 in   │
+│ _call_function                                                                                   │
+│                                                                                                  │
+│   1639 │   │                                                                                     │
+│ ❱ 1640 │   │   return await invocation.run_function()                                            │
+│   1641                                                                                           │
+│                                                                                                  │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.13/site-packages/modal/_functions.py:462 in    │
+│ run_function                                                                                     │
+│                                                                                                  │
+│    461 │   │   │   metadata = await self.client.get_input_plane_metadata(self.input_plane_regio  │
+│ ❱  462 │   │   │   await_response: api_pb2.AttemptAwaitResponse = await self.stub.AttemptAwait(  │
+│    463 │   │   │   │   await_request,                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+ConnectionError: Deadline exceeded
